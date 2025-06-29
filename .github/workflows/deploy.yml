@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Deploy to GitHub Pages Souece
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          external_repository: huanhuan0812/source
+          publish_dir: ”“
+          destination_dir: docs/source
+          keep_files: false
+          force_orphan: false
+          publish_branch: main
+          user_name: 'github-actions[bot]'
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          deploy_key: ${{secrets.DOCS_DEPLOY}}

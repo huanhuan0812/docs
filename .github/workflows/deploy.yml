@@ -18,7 +18,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           external_repository: huanhuan0812/source
-          publish_dir: ”“
+          publish_dir: ./
           destination_dir: docs/source
           keep_files: false
           force_orphan: false
